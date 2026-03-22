@@ -1,14 +1,10 @@
 package com.fplumara.dam1.LumaraEsports.model;
 
-import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-
-import java.math.BigDecimal;
 
 @Data
 @AllArgsConstructor
@@ -18,15 +14,12 @@ public class Equipos {
     private Long id;
 
     @NotBlank(message = "El nombre es obligatorio")
+    @Size(min = 3, max = 50, message = "El nombre debe tener entre 3 y 50 caracteres")
     private String nombre;
 
-    @NotBlank(message = "La ciudad es obligatoria")
-    private String ciudad;
+    @NotBlank(message = "El juego es obligatorio")
+    private String juego;
 
-    @NotNull(message = "El premio es obligatorio")
-    @DecimalMin(value = "", message = "El premio debe ser mayor que 0")
-    private BigDecimal premio;
-
-    @NotNull(message = "Debes seleccionar un equipo campeon")
-    private Long equipoCampeonId;
+    @NotBlank(message = "El país es obligatorio")
+    private String pais;
 }
